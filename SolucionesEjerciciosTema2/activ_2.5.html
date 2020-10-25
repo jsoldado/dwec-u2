@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" onclick="testeo();" value="Testear">
+    <script>
+        function digitoHexa2Dec(hexa){
+            switch(hexa.toLowerCase()){
+                case '0':   
+                case '1':
+                case '2':
+                case '3': 
+                case '4': 
+                case '5': 
+                case '6': 
+                case '7': 
+                case '8': 
+                case '9': return parseInt(hexa);
+                case 'a':   return 10; 
+                case 'b':   return 11; 
+                case 'c':   return 12; 
+                case 'd':   return 13; 
+                case 'e':   return 14; 
+                case 'f':   return 15; 
+                default: throw new Error("Dígito hexadecimal no válido");
+
+            }
+        }
+
+        function hexa2decimal(hexa){
+            var hexaLC=hexa.toLowerCase();
+            var decimal=0;
+            for (var i=0; i< hexa.length; i++){
+                decimal += digitoHexa2Dec(hexaLC[hexa.length-i-1]) * Math.pow(16,i);
+            }
+            return decimal;
+        }
+
+        function testeo(){
+            var valoresEntrada=['c9','F1','fe','A0','Bc7','115'];
+            var valoresEsperados=[201,241,254,160,3015,277];
+            var OK=true;
+            for (var i=0; i<valoresEntrada.length ; i++){
+             if(hexa2decimal(valoresEntrada[i])!=valoresEsperados[i]) {
+                 console.log("valorEntrada=" +valoresEntrada[i] + ", valorEsperado="+ valoresEsperados[i] + " => FALLA");
+                 OK=false;   
+            }
+            }
+            if(OK) alert("Supera el test");
+            else alert("Falla el test");
+        }
+    </script>
+</body>
+</html>

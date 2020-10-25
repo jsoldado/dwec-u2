@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>JavaScript</title>
+	<meta charset="utf-8" >
+	<script>
+		function verCalificacionDecimal(nota){
+		//nota=parseInt(notaStr);
+		//console.log("nota=" + nota);
+		//console.log ("typeof nota: " + typeof nota);
+		var notatexto;
+		if(nota >=0 && nota<5) notatexto="INSUFICIENTE";
+		else if(nota>=5 && nota<6)  notatexto="SUFICIENTE";
+		else if (nota>=6 && nota<7) notatexto="BIEN";
+		else if (nota>=7 && nota<9) notatexto="NOTABLE";
+		else if (nota>=9 && nota<=10) notatexto="SOBRESALIENTE";
+		else notatexto="VALOR INCORRECTO";
+		return notatexto;
+		
+		}
+		
+		function test(){
+		var nota=[-1.5,0,3.5,4.9,5.6,6.9,8.9,9.1,10,11];
+var valoresEsperados=["VALOR INCORRECTO",
+                      "INSUFICIENTE",
+					  "INSUFICIENTE",
+					  "INSUFICIENTE",
+					  "SUFICIENTE",
+					  "BIEN",
+					  "NOTABLE",
+					  "SOBRESALIENTE",
+					  "SOBRESALIENTE",
+					  "VALOR INCORRECTO"];
+			var ok=true;
+
+			for(var i=0;i<nota.length;i++){
+				if(verCalificacionDecimal(nota[i])==valoresEsperados[i]){
+					console.log(nota[i] + " = " + valoresEsperados[i] + " => OK");
+				}
+				else{
+				console.log(nota[i] + " = " + valoresEsperados[i] + " => FALLA");
+				ok=false;
+				}
+			}
+			
+			if(ok) console.log("PASA => Ha superado todas las comprobaciones");
+			else console.log("NO PASA => No ha superado todas las comprobaciones");
+		}
+	
+	</script>
+</head>
+<body>
+<p>JavaScript Template</p>
+<span> Calcular nota </span>
+<br/>
+<input type="button" id="btn" onclick="test();" value="Pulsar" />
+</body>
+</html>

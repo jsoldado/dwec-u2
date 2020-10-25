@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>JavaScript</title>
+	<meta charset="utf-8" >
+	<script>
+	    function comprobarEsPar(numero)
+		{
+			return (numero % 2 ==0 );
+		}
+		
+		function test1(){
+			for (i=0; i<=100;i++){
+			  console.log("Numero " + i + " es par => " + comprobarEsPar(i));
+			}
+			alert("Ver resultados del testeo en consola de depuración");
+		}
+
+		function test2(){
+			var valoresEntrada=[1,2,5,8,9,12,16];
+			var valoresEsperados=[false,true,false,true,false,true,true];
+
+			var testOK=true;
+			for(var i=0;i<valoresEntrada.length;i++){
+				if(comprobarEsPar(valoresEntrada[i]==valoresEsperados[i])) console.log("entrada=" + valoresEntrada[i] + " esperado=" + valoresEsperados[i] +" => OK");
+				else {
+					console.log("entrada=" + valoresEntrada[i] + " esperado=" + valoresEsperados[i] +" => FALLA");
+					testOK=false;
+				}
+			}
+			if(testOK) console.log("Se ha superado el test");
+			else console.log("No se ha superado el test");
+
+			alert("Ver resultados del testeo en consola de depuración");
+
+		}
+	</script>
+</head>
+<body>
+<p>JavaScript Template</p>
+<span> Comprueba paridad </span>
+<br/>
+<input type="button" onclick="test1();" value="Testeo1" />
+<input type="button" onclick="test2();" value="Testeo2" />
+
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>JavaScript</title>
+	<meta charset="utf-8" >
+	<script>
+		function verCalificacion(nota){
+		//nota=parseInt(notaStr);
+		//console.log("nota=" + nota);
+		//console.log ("typeof nota: " + typeof nota);
+		var notatexto;
+		switch(nota){
+		  case 0:
+		  case 1:
+		  case 2:
+		  case 3:
+		  case 4:
+		    notatexto="INSUFICIENTE";
+			break;
+		  case 5:
+		    notatexto="SUFICIENTE";
+			break;
+		  case 6:
+		    notatexto="BIEN";
+			break;
+		  case 7:
+		  case 8:
+		    notatexto="NOTABLE";
+			break;
+		  case 9:
+		  case 10:
+		    notatexto="SOBRESALIENTE";
+			break;
+		  default:
+		    notatexto="Valor incorrecto";
+		}
+		return notatexto;
+		
+		}
+		
+		function test(){
+			for(var nota=-1;nota<=11;nota++){
+				console.log("nota: " + nota + " => " + verCalificacion(nota));
+			}
+		}
+	
+	</script>
+</head>
+<body>
+<p>JavaScript Template</p>
+<span> Calcular nota </span>
+<br/>
+<input type="text" id="notatxt" value="" />
+<input type="button" id="btn" onclick="test();" value="Pulsar" />
+</body>
+</html>
